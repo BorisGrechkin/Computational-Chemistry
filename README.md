@@ -1,3 +1,3 @@
 # Computational-Chemistry
 
-Модуль для обработки SMILES в файлы для Gaussian
+Модуль для обработки SMILESgit  в файлы для Gaussian
