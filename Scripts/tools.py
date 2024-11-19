@@ -79,7 +79,7 @@ class MoleculeConformerGenerator:
         return self.conformer_ids
 
     def optimize_conformers(self):
-        """
+        """"
         Оптимизирует конформеры и вычисляет их энергии.
 
         Возвращает:
@@ -95,8 +95,10 @@ class MoleculeConformerGenerator:
 
     def save_conformers(self):
         """
-        Сохраняет топ-3 стабильных конформера в формате MOL.
-
+        Сохраняет топ-3 стабильных конформера в формате .mol, содержащем только координаты атомов.
+        Формат сохраняемых данных:
+        - атомный символ
+        - координаты (x, y, z) с точностью до 4 знаков после запятой
         Печатает:
             Сообщение о том, что топ-3 стабильных конформеров сохранены в указанной папке.
         """
@@ -105,10 +107,15 @@ class MoleculeConformerGenerator:
         top_3_conformers = sorted_energies[:3]
 
         for conf_id, energy in top_3_conformers:
-            stable_file = os.path.join(self.output_dir, f"{self.smiles}_{conf_id}.mol")
-            with open(stable_file, "w") as f:
-                f.write(Chem.MolToMolBlock(self.mol_with_h, confId=conf_id))
-        print(f"Топ-3 стабильных конформера сохранены в папке: {self.output_dir}")
+            file_path = os.path.join(self.output_dir, f"{self.smiles}_{conf_id}.mol")
+            conf = self.mol_with_h.GetConformer(conf_id)
+
+            with open(file_path, "w") as file:
+                for atom in self.mol_with_h.GetAtoms():
+                    atom_symbol = atom.GetSymbol()
+                    pos = conf.GetAtomPosition(atom.GetIdx())
+                    file.write(f"{atom_symbol:>1}  {pos.x:7.4f}  {pos.y:7.4f}  {pos.z:7.4f}\n")
+            print(f"Конформер {conf_id} сохранен в формате .mol: {file_path}")
 
     def generate_and_save(self):
         """
