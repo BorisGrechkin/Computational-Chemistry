@@ -27,8 +27,12 @@ It uses RDKit for molecule generation and a custom Gaussian input generator.
 
 4. **Usage**
    
-```docker run --rm -v <path_to_results>:/Results smiles_to-gif:1.0 --input_smiles "<smiles_string>"```
+```bash
+docker run --rm -v <path_to_results>:/Results smiles_to-gif:1.0 --input_smiles "<smiles_string>"
+```
 
 *Replace /path/to/my/results with your actual absolute path. Always use absolute paths for the volume mount.
 
-Output Files: The output (.gjf and animation files) will be generated inside the /Results directory on your host machine.
+Output Files: The output will be generated inside the /Results directory on your host machine.
+.mol files will be generated in /Coordinates 
+.gif files will be generated in /GIF_files
