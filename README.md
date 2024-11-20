@@ -21,7 +21,7 @@ It uses RDKit for molecule generation and a custom Gaussian input generator.
 3. **Build the Docker Image:**
 
    ```
-   docker build -t smiles_to-gif:1.0 .
+   docker build -t smiles_to-gjf:1.0 .
    ```
 
 4. **Usage**
