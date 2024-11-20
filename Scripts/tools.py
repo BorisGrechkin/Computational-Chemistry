@@ -215,10 +215,6 @@ class GaussianInputGenerator:
     def process_xyz_file(self):
         """
         Processes a single XYZ file and generates a Gaussian input file.
-
-        Args:
-            xyz_filepath (str): Path to the input XYZ file.
-            output_dir (str): Directory to save the generated .gjf file.
         """
         for file in os.listdir(self.xyz_filepath):
 
