@@ -187,9 +187,9 @@ class GaussianInputGenerator:
             filename (str): Path to the output .gjf file.
         """
         with open(filename, 'w') as f:
-            f.write(f'%NProcShared={self.nproc}\n')
-            f.write(f'# {self.method} {self.comment} {self.level_of_theory}\n\n')
-            f.write(f'{self.title}\n\n')
+            f.write(f'%NProc={self.nproc}\n')
+            f.write(f'# {self.level_of_theory} {self.method}\n\n')
+            f.write(f'{self.title} {self.comment}\n\n')
             f.write(f'{self.charge} {self.multiplicity}\n')
             f.write(coords)
             f.write('\n')
