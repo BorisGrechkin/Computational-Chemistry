@@ -30,7 +30,7 @@ It uses RDKit for molecule generation and a custom Gaussian input generator.
    docker run --rm -v <path_to_results>:/Results smiles_to-gjf:1.0 --input_smiles "<smiles_string>"
    ```
 
-*Replace /path/to/my/results with your actual absolute path. Always use absolute paths for the volume mount.
+*Replace <path_to_results> with your actual absolute path. Always use absolute paths for the volume mount.
 
 Output Files: The output will be generated inside the /Results directory on your host machine.
 .mol files will be generated in /Coordinates 
