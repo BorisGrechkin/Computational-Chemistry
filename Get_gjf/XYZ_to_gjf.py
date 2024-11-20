@@ -6,19 +6,19 @@ from rdkit.Chem import AllChem
 import argparse
 import os
 
-# Функция для генерации .gjf файла
+# Function to generate .gjf file
 def generate_gjf(coords, filename, method, charge, multiplicity, title, level_of_theory, nproc, comment):
     with open(filename, 'w') as f:
-        # Запись заголовков
+        # Recording Headers
         f.write(f'%NProcShared={nproc}\n')
         f.write(f'# {method} {comment} {level_of_theory}\n\n')
         f.write(f'{title}\n\n')
         f.write(f'{charge} {multiplicity}\n')
-        # Запись координат
+        # Recording coordinates
         f.write(coords)
         f.write('\n')
 
-# Основной блок с использованием argparse
+# Main block using argparse
 def main():
     parser = argparse.ArgumentParser(description='Generate .gjf files from SMILES strings with customizable parameters.')
     parser.add_argument('--xyz_files', type=str, nargs='+', required=True, help='Enter your path to xyz file')
@@ -35,27 +35,24 @@ def main():
 
     def read_coords_from_xyz(file_path):
         with open(file_path, 'r') as file:
-            # lines = file.readlines()
-            # # Пропускаем первые две строки (количество атомов и комментарий)
-            # coords = lines
             coords = file.read()
         return coords
 
-# Генерация файлов .gjf
+# Generate .gjf files
     for i, xyz_file in enumerate(args.xyz_files):
-        # Проверяем, существует ли файл
+        # Check if the file exists
         if not os.path.exists(xyz_file):
             print(f"File not found: {xyz_file}")
             continue
 
-    # Чтение координат из .xyz файла
+    # Reading coordinates from .xyz file
     coords = read_coords_from_xyz(xyz_file)
 
-    # Генерация имени файла .gjf
+    # Generate .gjf file name
     filename = f"molecule_{i+1}.gjf"
-    title = f'{args.title} {i+1}'  # Добавление индекса к названию
+    title = f'{args.title} {i+1}'  # Adding an index to the title
 
-    # Вызов функции generate_gjf с координатами из файла
+    # Calling the generate_gjf function with coordinates from a file
     generate_gjf(
         coords=coords,
         filename=filename,
