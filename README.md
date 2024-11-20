@@ -38,39 +38,46 @@ Output Files: The output will be generated inside the /Results directory on your
 
 # XYZ_to_GJF Converter
 
-Скрипт для конвертации координат атомов в молекуле из формата `.mol` (или `.xyz`) в формат `.gjf`. Этот формат необходим для работы с программой **Gaussian 09W**.
+A script for converting atomic coordinates in a molecule from the `.mol` (or `.xyz`) format to the `.gjf` format. This format is essential for performing calculations in the **Gaussian 09W** program.
 
 ---
 
-## Описание
+## Description
 
-Данный скрипт используется для преобразования файлов с координатами атомов в молекуле из формата `.mol` (он же `.xyz`) в `.gjf`. Это необходимо для дальнейших расчетов в программе **Gaussian 09W**. 
+This script is used to transform files containing atomic coordinates in a molecule from the `.mol` format (which is equivalent to `.xyz`) into `.gjf`. This conversion is necessary for further computations in **Gaussian 09W**.
 
-Скрипт позволяет задавать параметры для расчета: метод, заряд молекулы, мультиплетность, количество процессоров и другие настройки.
+The script allows you to specify calculation parameters, including the method, molecular charge, multiplicity, the number of processors, and more.
 
 ---
 
-## Установка
+## Installation
 
-**Инструкция по использованию**
+---
 
-*Шаг 1: Подготовка координат*
-*Откройте папку Coordinates. В ней находятся файлы с расширением .mol, содержащие координаты атомов молекулы. Эти файлы понадобятся для указания пути при запуске скрипта.
+## Instructions for Use
 
-*Примечание: Расширения .mol и .xyz идентичны в данном случае.
+**Step 1: Preparing the coordinates**  
+Open the **Coordinates** folder. It contains `.mol` files with atomic coordinates of molecules. These files are needed to specify the input path when running the script.
 
-*Шаг 2: Запуск скрипта*
-*Откройте скрипт XYZ_to_gjf.py. Для его запуска укажите параметры, определяющие цель расчета. Например:
+Note: The `.mol` and `.xyz` extensions are interchangeable in this context.
 
-*Метод: B3LYP
-*Базисный набор (если требуется): укажите отдельно.
-*Заряд молекулы: 0
-*Мультиплетность: 1
-*Количество процессоров: 8
-*Запуск выполняется командой:
+---
+
+**Step 2: Running the script**  
+Open the `XYZ_to_gjf.py` script. Specify the parameters that determine the calculation's goal. For example:
+
+* Method: `B3LYP`
+* Basis set (if required): specify separately.
+* Molecular charge: `0`
+* Multiplicity: `1`
+* Number of processors: `8`
+
+The script can be run using the following command:
 
 ```bash
-python Get_gjf\\XYZ_to_gjf.py --xyz_files "Coordinates\\C1=CC=CC=C1_1.mol" --method B3LYP --charge 0 --multiplicity 1 --nproc 8
+python Scripts\\XYZ_to_gjf.py --xyz_files "Results\\Coordinates\\C1=CC=CC=C1_1.mol" --level_of_theory B3LYP/6-31G**  --method "Opt Freq"  --charge 0 --multiplicity 1 --nproc 4 
 ```
-*Шаг 3: Результаты*
-После выполнения скрипта файлы с расширением .gjf и указанными параметрами будут сохранены в папке Results. Теперь эти файлы можно использовать в программе Gaussian 09W для расчетов.
+
+Step 3: Results
+
+After running the script, .gjf files with the specified parameters will be saved in the Results folder. These files are now ready to be used in the Gaussian 09W program for further calculations
