@@ -1,7 +1,6 @@
 # Computational-Chemistry
 
-his project converts a SMILES string into a Gaussian input file (.gjf) for geometry optimization and frequency calculations, 
-and then generates an animation of the optimized molecule.  
+This project converts a SMILES string into a Gaussian input file (.gjf) for geometry optimization and frequency calculations.
 It uses RDKit for molecule generation and a custom Gaussian input generator.
 
 ## Installation
@@ -35,4 +34,4 @@ It uses RDKit for molecule generation and a custom Gaussian input generator.
 
 Output Files: The output will be generated inside the /Results directory on your host machine.
 .mol files will be generated in /Coordinates 
-.gif files will be generated in /GIF_files
+.gjf files will be generated in /GIF_files
