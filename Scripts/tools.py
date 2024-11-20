@@ -148,7 +148,7 @@ class GaussianInputGenerator:
     XYZ files and writing the formatted input to .gjf files.
     """
 
-    def __init__(self, xyz_filepath = 'Results/Coordinates', output_dir = 'Results/GIF_files',
+    def __init__(self, xyz_filepath = 'Results/Coordinates', output_dir = 'Results/GJF_files',
                  method='Opt Freq SCRF=(CPCM,Solvent=Water)', comment='Here could be your advertisement',
                  charge=0, multiplicity=1, title='Molecule', level_of_theory='PM3', nproc=4):
         """

@@ -34,4 +34,4 @@ It uses RDKit for molecule generation and a custom Gaussian input generator.
 
 Output Files: The output will be generated inside the /Results directory on your host machine.
 .mol files will be generated in /Coordinates 
-.gjf files will be generated in /GIF_files
+.gjf files will be generated in /GJF_files

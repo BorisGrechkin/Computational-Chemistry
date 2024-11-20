@@ -1,7 +1,7 @@
 FROM python:3.10.5-slim-buster
 
 RUN mkdir -p /Results/Coordinates
-RUN mkdir -p /Results/GIF_files
+RUN mkdir -p /Results/GJF_files
 
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
